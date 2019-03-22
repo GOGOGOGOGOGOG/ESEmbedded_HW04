@@ -125,7 +125,7 @@ SET_BIT(GPIO_BASE(GPIO_PORTD) + GPIOx_BSRR_OFFSET, BSy_BIT((int) ((led>>12&0x0C)
 SET_BIT(GPIO_BASE(GPIO_PORTD) + GPIOx_BSRR_OFFSET, BSy_BIT((int)((led>>8&0x0D))));
 SET_BIT(GPIO_BASE(GPIO_PORTD) + GPIOx_BSRR_OFFSET, BSy_BIT((int)((led>>4&0x0E))));
 SET_BIT(GPIO_BASE(GPIO_PORTD) + GPIOx_BSRR_OFFSET, BSy_BIT((int)((led&0x0F))));
-for (i = 0; i < 2000000; i++) 
+for (i = 0; i < 1000000; i++) 
 			;
 }
 void close_light_all(void)
@@ -136,6 +136,6 @@ SET_BIT(GPIO_BASE(GPIO_PORTD) + GPIOx_BSRR_OFFSET, BRy_BIT((int) ((led>>12&0x0C)
 SET_BIT(GPIO_BASE(GPIO_PORTD) + GPIOx_BSRR_OFFSET, BRy_BIT((int)((led>>8&0x0D))));
 SET_BIT(GPIO_BASE(GPIO_PORTD) + GPIOx_BSRR_OFFSET, BRy_BIT((int)((led>>4&0x0E))));
 SET_BIT(GPIO_BASE(GPIO_PORTD) + GPIOx_BSRR_OFFSET, BRy_BIT((int)((led&0x0F))));
-for (i = 0; i < 2000000; i++) 
+for (i = 0; i < 1000000; i++) 
 			;
 }
