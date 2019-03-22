@@ -9,7 +9,7 @@
 
 #define SET_BIT(addr, bit) (REG(addr) |= UINT32_1 << (bit))
 #define CLEAR_BIT(addr, bit) (REG(addr) &= ~(UINT32_1 << (bit)))
-
+#define READ_BIT(addr , bit)  (REG(addr) &= (UINT32_1 << (bit)))
 // #define READ_BIT(addr, bit) ??????
 
 //RCC
@@ -44,5 +44,8 @@
 #define GPIOx_BSRR_OFFSET 0x18
 #define BRy_BIT(y) ((y) + 16)
 #define BSy_BIT(y) (y)
+
+#define GPIOx_IDR_OFFSET  0x10
+#define IDR_BIT(y) (y)
 
 #endif
