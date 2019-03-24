@@ -1,3 +1,4 @@
+#include "reg.h"
 #ifndef BLINK_H
 #define BLINK_H
 
@@ -13,4 +14,5 @@ void Delay(unsigned int nDelay);
 void close_light(int led);
 void turn_light_all(void);
 void close_light_all (void);
+int GPIO_init (unsigned int GPIO_PORTx , unsigned int GPIO_Pinx , GPIO_InitDef * GPIO_initstruct );
 #endif
