@@ -6,8 +6,8 @@
 void user_button_Init(void)
 {
 	GPIO_InitDef GPIO_initstructure ;
-    GPIO_initstructure.GPIO_Mode = GPIO_Mode_IN;
-    GPIO_initstructure.GPIO_OType = GPIO_Type_pp;
+        GPIO_initstructure.GPIO_Mode = GPIO_Mode_IN;
+        GPIO_initstructure.GPIO_OType = GPIO_Type_pp;
 	GPIO_initstructure.GPIO_PuPd = GPIO_PuPd_down;
 	GPIO_initstructure.GPIO_Speed = GPIO_High_speed;
 	GPIO_init(GPIO_PORTA,GPIO_Pin(0),&GPIO_initstructure);
