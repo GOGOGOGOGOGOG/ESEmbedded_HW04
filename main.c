@@ -2,14 +2,21 @@
 #include "blink.h"
 #include "reg.h"
 #include <math.h>
-
+//int GPIO_init (unsigned int GPIO_PORTx , unsigned int GPIO_Pinx , GPIO_InitDef * GPIO_initstruct );
+void user_button_Init(void)
+{
+	GPIO_InitDef GPIO_initstructure ;
+    GPIO_initstructure.GPIO_Mode = GPIO_Mode_IN;
+    GPIO_initstructure.GPIO_OType = GPIO_Type_pp;
+	GPIO_initstructure.GPIO_PuPd = GPIO_PuPd_down;
+	GPIO_initstructure.GPIO_Speed = GPIO_High_speed;
+	GPIO_init(GPIO_PORTA,GPIO_Pin(0),&GPIO_initstructure);
+}
 int main(void)
 {
 	int a = 0;
 	 int b = 0;
-	user_button_init();
- 
-	//Delay(10000);
+     user_button_Init();
 	 while (1)
 	{
 		
