@@ -242,7 +242,7 @@ SET_BIT(GPIO_BASE(GPIO_PORTD) + GPIOx_BSRR_OFFSET, BRy_BIT((int)((led&0x0F))));
  for (i = 0; i < 1000000; i++) 
 			;
 }
-void turn_light_one (int32_t * led_ptr){
+void turn_light_multiple (int32_t * led_ptr){
 unsigned int i;
 
 if(led_ptr){
