@@ -3,6 +3,7 @@
 #include "reg.h"
 #include <math.h>
 //int GPIO_init (unsigned int GPIO_PORTx , unsigned int GPIO_Pinx , GPIO_InitDef * GPIO_initstruct );
+int32_t LED_turn_on [4]= {0x0,0x0,0x0,0x0};
 void user_button_Init(void)
 {
 	GPIO_InitDef GPIO_initstructure ;
@@ -17,6 +18,8 @@ int main(void)
 	int a = 0;
 	 int b = 0;
      user_button_Init();
+	 int32_t LED_turn_on[4]={0x0C,0x0D,0x0E,0x00};  // 12 13 14 15 Stands for 0 1 2 3 array of position
+	 //int32_t *p = &LED_turn_on;
 	 while (1)
 	{
 		
@@ -48,7 +51,8 @@ int main(void)
 	   else if(b%6 ==5)
 	   {
        //0xCDEF       
-       turn_light_all();
+      // turn_light_all();
+	   turn_light_one(LED_turn_on);
 	   }
        else if(b%6==0)
        {

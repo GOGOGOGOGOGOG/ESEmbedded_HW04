@@ -49,7 +49,7 @@ if(GPIO_initstruct){
   SET_BIT(GPIO_BASE(GPIO_PORTx) + GPIOx_MODER_OFFSET, MODERy_1_BIT(GPIO_Pinx));
   SET_BIT(GPIO_BASE(GPIO_PORTx) + GPIOx_MODER_OFFSET, MODERy_0_BIT(GPIO_Pinx));
   }
-  else if (GPIO_initstruct->GPIO_Mode == 0)
+  else 
   {
 	   return GPIO_SET_fail;
  }
@@ -63,7 +63,7 @@ if(GPIO_initstruct){
   {
   SET_BIT(GPIO_BASE(GPIO_PORTx) + GPIOx_MODER_OFFSET, OTy_BIT(GPIO_Pinx));
   }
- else if (GPIO_initstruct->GPIO_OType==0)
+ else 
   {
   return GPIO_SET_fail;
   }
@@ -89,7 +89,7 @@ if(GPIO_initstruct){
   CLEAR_BIT(GPIO_BASE(GPIO_PORTx) + GPIOx_OSPEEDR_OFFSET, OSPEEDRy_1_BIT(GPIO_Pinx));
   CLEAR_BIT(GPIO_BASE(GPIO_PORTx) + GPIOx_OSPEEDR_OFFSET, OSPEEDRy_0_BIT(GPIO_Pinx));
  }
-  else if (GPIO_initstruct->GPIO_Speed ==0)
+  else 
   {
 
    return GPIO_SET_fail;
@@ -114,7 +114,7 @@ else if(GPIO_initstruct->GPIO_PuPd ==GPIO_PuPd_down)
 SET_BIT(GPIO_BASE(GPIO_PORTx) + GPIOx_PUPDR_OFFSET, PUPDRy_1_BIT(GPIO_Pinx));
 CLEAR_BIT(GPIO_BASE(GPIO_PORTx) + GPIOx_PUPDR_OFFSET, PUPDRy_1_BIT(GPIO_Pinx));
 }
-else if(GPIO_initstruct->GPIO_PuPd==0)
+else 
 {
 return GPIO_SET_fail;
 }
@@ -241,4 +241,65 @@ SET_BIT(GPIO_BASE(GPIO_PORTD) + GPIOx_BSRR_OFFSET, BRy_BIT((int)((led>>4&0x0E)))
 SET_BIT(GPIO_BASE(GPIO_PORTD) + GPIOx_BSRR_OFFSET, BRy_BIT((int)((led&0x0F))));
  for (i = 0; i < 1000000; i++) 
 			;
+}
+void turn_light_one (int32_t * led_ptr){
+unsigned int i;
+
+if(led_ptr){
+
+   if ((*led_ptr)==0x0C)
+    {
+    SET_BIT(GPIO_BASE(GPIO_PORTD)+GPIOx_BSRR_OFFSET,BSy_BIT(0x0C));
+     led_ptr++;
+    }
+    else
+    {
+      led_ptr++;
+    }
+    
+   
+     if((*led_ptr)==0x0D)
+     {
+         
+      SET_BIT(GPIO_BASE(GPIO_PORTD)+GPIOx_BSRR_OFFSET,BSy_BIT(0x0D));
+     led_ptr++;
+     }     
+     else
+     {
+       led_ptr++;
+     }
+     
+
+     if((*led_ptr)==0x0E)
+     {
+
+     SET_BIT(GPIO_BASE(GPIO_PORTD)+GPIOx_BSRR_OFFSET,BSy_BIT(0X0E));
+     led_ptr++;
+
+      }
+
+      else
+      {
+        led_ptr++;
+      }
+
+
+
+     if((*led_ptr)==0x0F)
+     {
+       SET_BIT(GPIO_BASE(GPIO_PORTD)+GPIOx_BSRR_OFFSET,BSy_BIT(0x0F));
+       led_ptr++;
+     }
+     else 
+     {
+
+       led_ptr++;
+     }
+
+   for (i = 0; i < 1000000; i++) 
+			;
+      
+ 
+}
+
 }
